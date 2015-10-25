@@ -1,6 +1,6 @@
 var map;
 
-var PF_SHELTER_FIND = "http://api.petfinder.com/shelter.find?key={token}&format=json&location={zipcode}";
+var PF_SHELTER_FIND = "https://api.petfinder.com/shelter.find?key={token}&format=json&location={zipcode}";
 var MB_REVERSE_GEOCODER = "https://api.mapbox.com/geocoding/v5/mapbox.places/{lon},{lat}.json?access_token={token}"
 
 var MAPBOX_TOKEN = "pk.eyJ1IjoibWllbmFpa29lIiwiYSI6ImNpZzZxMGNidjVtNDZ0NW0zd21xc20yMTEifQ.Yz9I2vVWcteSI_lBMgu2HA";
