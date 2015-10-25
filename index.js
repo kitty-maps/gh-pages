@@ -26,7 +26,7 @@ function reverseGeocode(latlon){
 function getShelters(zipcode){
   return new Promise(function(resolve, reject){
     function reqListener () {
-      resolve(JSON.parse(this.responseText));
+      resolve(JSON.parse(this.responseText).petfinder.shelters.shelter);
     }
     var url = PF_SHELTER_FIND
         .replace("{zipcode}", zipcode)
@@ -62,7 +62,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
       }
       getShelters( postcode ).then(function(shelters){
-        console.log(shelters);
+        for( var ix in shelters ){
+          var shelter = shelters[ix];
+          L.marker([
+            parseFloat(shelter.latitude.$t),
+            parseFloat(shelter.longitude.$t)
+          ]).addTo(map);
+        }
         // add shelters to map
       })
     });
